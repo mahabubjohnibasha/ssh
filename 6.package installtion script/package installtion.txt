@@ -1,0 +1,19 @@
+We need to install prometheus software in our system, but we need to frist check that if the file exists in our system or not 
+,if it already exists then it will not download, it just install same
+
+prerequisits:
+
+wget 
+how to check file exists or not using -e 
+#!/bin/bash
+echo "Download the prometheus binaries"
+if [-e /home/ec2-user/prometheus-2.42.0.linux-amd64.tar.gz];
+then
+echo "file is already exisitng so no need to download"
+tar -zxvf /home/ec2-usewr/prometheus-2.42.0.linux-amd64.tar.gz
+else
+echo "binary does not exists in system we need to download it"
+wget https://github.com/prometheus/release/download/v2.42.0/prometheus-2.42.linix-amd64.tar.gz
+tar -zxvf /home/ec2-user/prometheus-2.42.0linux-amd64.tar.gz
+echo "file has been extracted , you can start prometheus"
+fi
